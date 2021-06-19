@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Nunito;
+    src: url(../fonts/Nunito-Regular.ttf);
+}
+
+body,
+html {
+    font-size: 14px;
+    font-family: Nunito;
+    background: #f1f0f1;
+}
+
+.container {
+    width: 1140px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block !important;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-center {
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+// header
+.header {
+    background-color: #fff;
+    .header_top {
+        padding: 1em 0;
+        i {
+            font-size: 1.5em;
+        }
+        .header_bar {
+            display: none;
+        }
+        a.header_logo {
+            font-weight: 600;
+            span {
+                font-size: 3em;
+                font-style: italic;
+                color: black;
+            }
+            small,
+            b {
+                font-size: 1.5em;
+                color: #cc0101;
+            }
+        }
+        form.header_search {
+            position: relative;
+            width: 50%;
+            transition: width 0.5 ease-in-out;
+            input {
+                width: 100%;
+                outline: none;
+                padding: 0.5em 0.5em;
+                border: 1px solid #000;
+                transition: border-color 0.5s ease;
+                &:focus {
+                    border-color: #cc0101;
+                }
+            }
+            button {
+                position: absolute;
+                right: 0.75em;
+                top: 50%;
+                transform: translateY(-50%);
+                outline: none;
+                border: none;
+                background: none;
+                cursor: pointer;
+            }
+        }
+        ul {
+            li {
+                a {
+                    color: #000;
+                    span {
+                        i {
+                            padding-right: 0.25em;
+                            color: #a4a4a4;
+                        }
+                    }
+                    &:last-child {
+                        padding-left: 0.5em;
+                    }
+                }
+            }
+        }
+    }
+    .header_nav {
+        background: #cc0101;
+        .header_close {
+            display: none;
+        }
+        ul.header_menu {
+            display: flex;
+            align-items: flex-start;
+            li {
+                padding: 0.5em 0;
+                a {
+                    padding: 0 2em;
+                    color: #fff;
+                }
+                &.header_drop {
+                    position: relative;
+                    >a>i {
+                        font-size: 0.9em;
+                    }
+                    .drop-down {
+                        position: absolute;
+                        opacity: 0;
+                        visibility: hidden;
+                        z-index: 9;
+                        top: 100%;
+                        width: 130%;
+                        background: #fff;
+                        transition: all 0.5s ease;
+                        a {
+                            display: block;
+                            color: #000;
+                            margin: 0.5em 0;
+                            transition: all 0.5s ease;
+                            &:hover {
+                                color: #cc0101;
+                            }
+                        }
+                    }
+                    &:hover .drop-down {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// footer
+.footer {
+    margin-top: 1.25em;
+    // background-color: #fff0f0;
+    .footer_top {
+        border-top: 1px solid #cc0101;
+        padding: 1.25em;
+        .footer_item {
+            width: 25%;
+            .footer_img {
+                img {
+                    display: block;
+                    width: 80px;
+                    height: 80px;
+                    margin: 0 auto;
+                }
+                &:last-child {}
+            }
+            p {
+                margin: 1.25em 0 1em;
+                color: #000;
+                text-align: center;
+                font-weight: 600;
+            }
+        }
+    }
+    .footer_bottom {
+        background-color: #686565;
+        .footer_item {
+            width: 25%;
+            .footer_title {
+                h3 {
+                    color: #fff;
+                    margin: 1em 0;
+                    font-size: 1.25em;
+                    text-transform: uppercase;
+                }
+            }
+            .footer_list {
+                padding-bottom: 1em;
+                li {
+                    a {
+                        color: #dbcdcc;
+                        margin: 0.75em 0;
+                        transition: color 0.5s ease-in-out;
+                        i {
+                            margin-right: 0.25em;
+                        }
+                        &::before {
+                            content: '\2192';
+                            opacity: 0;
+                            visibility: hidden;
+                            margin-left: -0.75em;
+                            transition: all 0.5s ease-in-out;
+                        }
+                        &:hover::before {
+                            opacity: 1;
+                            visibility: visible;
+                            margin-left: 0;
+                        }
+                        &:hover {
+                            color: #cc0101;
+                            i {
+                                color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
