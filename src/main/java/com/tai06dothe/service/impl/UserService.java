@@ -70,7 +70,12 @@ public class UserService implements IUserService{
 			return modelMapper.map(userRepository.save(userEntity),UserDTO.class);
 		}
 		
+	}
+
+	@Override
+	public UserDTO findOneByUserName(String name) {
 		
+		return modelMapper.map(userRepository.findOneByUserName(name),UserDTO.class);
 	}
 	
 }

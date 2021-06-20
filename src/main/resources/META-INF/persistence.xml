@@ -3,5 +3,11 @@
     <persistence-unit name="persistence-data">
         <class>com.tai06dothe.entity.UserEntity</class>
         <class>com.tai06dothe.entity.RoleEntity</class>
+        <class>com.tai06dothe.entity.CategoryEntity</class>
+        <class>com.tai06dothe.entity.SaleEntity</class>
+        <class>com.tai06dothe.entity.ProductEntity</class>
+        <class>com.tai06dothe.entity.DetailProductEntity</class>
+        <class>com.tai06dothe.entity.BillEntity</class>
+        <class>com.tai06dothe.entity.ItemEntity</class>
     </persistence-unit>
 </persistence>

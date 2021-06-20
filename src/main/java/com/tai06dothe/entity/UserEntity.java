@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -47,9 +48,12 @@ public class UserEntity extends BaseEntity{
 	private String passwordText;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid")
-									,inverseJoinColumns = @JoinColumn(name = "roleid"))
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id")
+									,inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private List<RoleEntity> roles = new ArrayList<>();
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	private List<BillEntity> bills = new ArrayList<>();
 
 	public String getUserName() {
 		return userName;

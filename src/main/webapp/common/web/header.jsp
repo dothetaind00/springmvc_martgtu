@@ -40,9 +40,14 @@
 						</li>
 					</security:authorize>
                     <li>
-                        <a href="#" class="d-flex align-center">
+                        <a href="<c:url value='/cart'/>" class="d-flex align-center">
                             <span><i class="fa fa-cart-plus" aria-hidden="true"></i></span>
-                            <span>Giỏ hàng <br> (0) sản phẩm</span>
+                            <c:if test="${empty sessionScope.totalQuantity}">
+                            	<span>Giỏ hàng <br> (0) sản phẩm</span>
+                            </c:if>
+                            <c:if test="${not empty sessionScope.totalQuantity}">
+                            	<span>Giỏ hàng <br> (${sessionScope.totalQuantity}) sản phẩm</span>
+                            </c:if>
                         </a>
                     </li>
                 </ul>
@@ -62,11 +67,7 @@
                     <li class="header_drop">
                         <a href="#">Sản phẩm <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
                         <div class="drop-down">
-                            <a href="#">Thịt</a>
-                            <a href="#">Bánh kẹo</a>
-                            <a href="#">Nước uống</a>
-                            <a href="#">Rau</a>
-                            <a href="#">Sữa</a>
+                        	<%@ include file="/WEB-INF/views/menu.jsp" %>
                         </div>
                     </li>
                     <li>

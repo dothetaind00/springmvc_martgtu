@@ -15,6 +15,7 @@ public class UserDTO extends BaseDTO {
 	private String numberPhone;
 	private Boolean status;
 	private List<RoleDTO> roles = new ArrayList<>();
+	private List<BillDTO> bills = new ArrayList<>();
 
 	public String getUserName() {
 		return userName;
@@ -96,4 +97,12 @@ public class UserDTO extends BaseDTO {
 		this.roles = roles;
 	}
 
+	public List<BillDTO> getBills() {
+		return bills;
+	}
+
+	public void setBills(List<BillDTO> bills) {
+		this.bills = bills;
+	}
+	
 }

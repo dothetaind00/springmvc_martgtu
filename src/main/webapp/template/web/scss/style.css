@@ -51,20 +51,21 @@
         .main .main_products .main_list-product .main_item .main_product-info p.main_product-price {
           font-size: 0.9em;
           font-weight: bold; }
-      .main .main_products .main_list-product .main_item .main_product-control button[type=button] {
-        display: block;
-        outline: none;
-        border: 1px solid #cc0101;
-        border-radius: 3px;
-        background: #cc0101;
-        color: #fff;
-        padding: 0.5em 0.75em;
-        margin: 0.75em auto;
-        transition: all 0.5s ease-in-out; }
-        .main .main_products .main_list-product .main_item .main_product-control button[type=button]:hover {
-          color: #cc0101;
-          background: #fff;
-          border: 1px solid #cc0101; }
+      .main .main_products .main_list-product .main_item .main_product-control {
+        text-align: center; }
+        .main .main_products .main_list-product .main_item .main_product-control a {
+          display: inline-block;
+          border: 1px solid #cc0101;
+          border-radius: 3px;
+          background: #cc0101;
+          color: #fff;
+          padding: 0.5em 0.75em;
+          margin: 0.75em auto;
+          transition: all 0.5s ease-in-out; }
+          .main .main_products .main_list-product .main_item .main_product-control a:hover {
+            color: #cc0101;
+            background: #fff;
+            border: 1px solid #cc0101; }
     .main .main_products .main_list-product .main_show-all {
       margin: 1.75em 0 0.75em;
       text-align: center; }
@@ -114,20 +115,21 @@
     .main .main_page-product .main_item .main_product-info p.main_product-price {
       font-size: 0.9em;
       font-weight: bold; }
-  .main .main_page-product .main_item .main_product-control button[type=button] {
-    display: block;
-    outline: none;
-    border: 1px solid #cc0101;
-    border-radius: 3px;
-    background: #cc0101;
-    color: #fff;
-    padding: 0.5em 0.75em;
-    margin: 0.75em auto;
-    transition: all 0.5s ease-in-out; }
-    .main .main_page-product .main_item .main_product-control button[type=button]:hover {
-      color: #cc0101;
-      background: #fff;
-      border: 1px solid #cc0101; }
+  .main .main_page-product .main_item .main_product-control {
+    text-align: center; }
+    .main .main_page-product .main_item .main_product-control a {
+      display: inline-block;
+      border: 1px solid #cc0101;
+      border-radius: 3px;
+      background: #cc0101;
+      color: #fff;
+      padding: 0.5em 0.75em;
+      margin: 0.75em auto;
+      transition: all 0.5s ease-in-out; }
+      .main .main_page-product .main_item .main_product-control a:hover {
+        color: #cc0101;
+        background: #fff;
+        border: 1px solid #cc0101; }
 .main .main_page-sanpham {
   margin: 1.75em 0; }
   .main .main_page-sanpham .main_list-category {
@@ -205,17 +207,18 @@
         width: 30px;
         height: 30px;
         text-align: center; }
-      .main .main_product-detail .main_detail .main_detail-info .main_product-control > button {
+      .main .main_product-detail .main_detail .main_detail-info .main_product-control > a {
+        display: block;
+        text-align: center;
         margin: 1.5em 0;
         width: 30%;
         padding: 0.5em 0;
         background: #cc0101;
         color: #fff;
-        outline: none;
         border: 1px solid #cc0101;
         border-radius: 3px;
         transition: all 0.5s ease-in-out; }
-        .main .main_product-detail .main_detail .main_detail-info .main_product-control > button:hover {
+        .main .main_product-detail .main_detail .main_detail-info .main_product-control > a:hover {
           color: #cc0101;
           background: #fff; }
 .main .main_product-about .main_product-title {
@@ -303,15 +306,15 @@
         width: 1.75em;
         height: 1.75em;
         outline: none; }
-    .main .main_page-cart form table.main_table-cart tfoot tr td button {
-      outline: none;
+    .main .main_page-cart form table.main_table-cart tfoot tr td a {
+      display: inline-block;
       border: 1px solid #cc0101;
       background-color: #fff;
       color: #cc0101;
       margin: 1.25em 0;
       padding: 0.5em 0.75em;
       transition: all .5s ease; }
-      .main .main_page-cart form table.main_table-cart tfoot tr td button:hover {
+      .main .main_page-cart form table.main_table-cart tfoot tr td a:hover {
         color: #fff;
         background-color: #cc0101; }
   .main .main_page-cart form .main_cart-control {
@@ -331,8 +334,9 @@
       margin: 0 auto;
       visibility: hidden;
       opacity: 0; }
-    .main .main_page-cart form .main_cart-control button {
+    .main .main_page-cart form .main_cart-control a {
       display: block;
+      text-align: center;
       margin: 1.5em auto;
       padding: 0.75em 0;
       width: 90%;
@@ -341,7 +345,7 @@
       border: 1px solid #cc0101;
       background: #cc0101;
       transition: all 0.5s ease-in-out; }
-      .main .main_page-cart form .main_cart-control button:hover {
+      .main .main_page-cart form .main_cart-control a:hover {
         background: #fff;
         color: #cc0101; }
 .main .main_page-checkout .main_title h2 {
@@ -428,7 +432,7 @@
   position: fixed;
   width: 100%;
   height: 100%;
-  background: url("./template/static/image/login/background.svg") no-repeat;
+  background: url("../image/login/background.svg") no-repeat;
   background-size: cover;
   background-color: #f0f8ff; }
   .login .login_width {
