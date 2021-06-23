@@ -96,5 +96,13 @@ public class ProductEntity extends BaseEntity{
 	public void setItems(List<ItemEntity> items) {
 		this.items = items;
 	}
+
+	public SaleEntity getSale() {
+		return sale;
+	}
+
+	public void setSale(SaleEntity sale) {
+		this.sale = sale;
+	}
 	
 }

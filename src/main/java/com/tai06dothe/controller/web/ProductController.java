@@ -24,4 +24,17 @@ public class ProductController {
 		return "web/productdetail";
 	}
 	
+	@RequestMapping(value = "/list-product", method = RequestMethod.GET)
+	public String productsPage() {
+		return "web/products";
+	}
+	
+	@RequestMapping(value = "/products-of-catgory/{id}", method = RequestMethod.GET)
+	public String productsOfCategory(@PathVariable(value = "id", required = true) Long id ,Model model) {
+		
+		model.addAttribute("products", productService.findByCategory(id));
+		
+		return "forward:/product/list-product";
+	}
+	
 }

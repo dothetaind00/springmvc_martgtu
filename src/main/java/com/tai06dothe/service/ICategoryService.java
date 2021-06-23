@@ -7,5 +7,5 @@ import com.tai06dothe.dto.CategoryDTO;
 
 public interface ICategoryService {
 	List<CategoryDTO> findAll();
-	Map<String, String> loadMenu();
+	Map<Long, String> loadMenu();
 }

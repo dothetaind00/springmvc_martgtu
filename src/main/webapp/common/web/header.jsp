@@ -10,14 +10,14 @@
                 <div class="header_bar">
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </div>
-                <a href="index.html" class="header_logo">
+                <a href="<c:url value='/trang-chu'/>" class="header_logo">
                     <span>GTU</span>
                     <small>mart</small>
                     <b>.vn</b>
                 </a>
-                <form class="header_search" action="#">
-                    <input type="text" placeholder="Tìm kiếm...">
-                    <button type="button">
+                <form class="header_search" action="<c:url value='/search'/>" method="post">
+                    <input type="text" name="name" placeholder="Tìm kiếm...">
+                    <button type="submit">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </form>
@@ -62,10 +62,10 @@
             <div class="row">
                 <ul class="header_menu">
                     <li>
-                        <a href="index.html">Trang chủ</a>
+                        <a href="<c:url value='/trang-chu'/>">Trang chủ</a>
                     </li>
                     <li class="header_drop">
-                        <a href="#">Sản phẩm <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                        <a href="<c:url value='/product/products-of-catgory/1'/>">Sản phẩm <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
                         <div class="drop-down">
                         	<%@ include file="/WEB-INF/views/menu.jsp" %>
                         </div>
