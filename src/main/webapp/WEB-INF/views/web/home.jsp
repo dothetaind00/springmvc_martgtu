@@ -34,7 +34,7 @@
                             		<div class="main_product-img">
 		                                <a href="<c:url value='/product/product-detail/${product.id}' />">
 		                                	<c:forEach var="detail" items="${product.details}">
-		                                		<img src="<c:url value='/template/static/image/${detail.image}'/>">
+		                                		<img src="${pageContext.request.contextPath}/${detail.image}">
 		                                	</c:forEach>
 		                                </a>
                             		</div>

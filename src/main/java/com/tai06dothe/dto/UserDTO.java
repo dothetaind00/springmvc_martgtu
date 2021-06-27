@@ -3,7 +3,7 @@ package com.tai06dothe.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDTO extends BaseDTO {
+public class UserDTO extends BaseDTO<UserDTO> {
 
 	private String userName;
 	private String passwordText;

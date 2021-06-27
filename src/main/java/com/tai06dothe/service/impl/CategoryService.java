@@ -40,14 +40,14 @@ public class CategoryService implements ICategoryService{
 	@Override
 	public Map<Long, String> loadMenu() {
 		
-		Map<Long, String> result = new HashMap<>();
+		Map<Long, String> results = new HashMap<>();
 		List<CategoryEntity> entities = categoryRepository.loadMenu();
 		
 		for (CategoryEntity item : entities) {
-			result.put(item.getId(),item.getName());
+			results.put(item.getId(),item.getName());
 		}
 		
-		return result;
+		return results;
 	}
 
 }

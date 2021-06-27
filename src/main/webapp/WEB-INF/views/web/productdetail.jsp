@@ -23,7 +23,7 @@
                 <div class="row justify-between main_detail">
                     <div class="main_detail-img">
                     	<c:forEach var="detail" items="${product.details}">
-                    		<img src="<c:url value='/template/static/image/${detail.image}'/>">
+                    		<img src="${pageContext.request.contextPath}/${detail.image}">
                     	</c:forEach>
                     </div>
                     <div class="main_detail-info">
@@ -63,7 +63,7 @@
                     <p class="main_product-name">${product.name}</p>
                     <c:forEach var="detail" items="${product.details}">
 	                    <div class="main_product-img">
-	                        <img src="<c:url value='/template/static/image/${detail.image}'/>">
+	                        <img src="${pageContext.request.contextPath}/${detail.image}">
 	                    </div>
 	                    <p class="main_product-desc">
 	                    	${detail.description}

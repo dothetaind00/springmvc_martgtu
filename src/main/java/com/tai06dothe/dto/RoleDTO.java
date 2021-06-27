@@ -3,7 +3,7 @@ package com.tai06dothe.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoleDTO extends BaseDTO{
+public class RoleDTO extends BaseDTO<RoleDTO> {
 	
 	private String name;
 	private String code;

@@ -1,13 +1,14 @@
 package com.tai06dothe.dto;
 
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class DetailProductDTO {
 
 	private Long id;
 	private String image;
-	private CommonsMultipartFile[] imageFiles;
+	private String base64;
 	private String description;
+	@JsonIgnore
 	private ProductDTO product;
 
 	public Long getId() {
@@ -26,12 +27,15 @@ public class DetailProductDTO {
 		this.image = image;
 	}
 	
-	public CommonsMultipartFile[] getImageFiles() {
-		return imageFiles;
+	public String getBase64() {
+		if (base64 != null) {
+			return base64.split(",")[1];
+		}
+		return null;
 	}
 
-	public void setImageFiles(CommonsMultipartFile[] imageFiles) {
-		this.imageFiles = imageFiles;
+	public void setBase64(String base64) {
+		this.base64 = base64;
 	}
 
 	public String getDescription() {

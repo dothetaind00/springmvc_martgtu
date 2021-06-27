@@ -3,7 +3,7 @@ package com.tai06dothe.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductDTO extends BaseDTO {
+public class ProductDTO extends BaseDTO<ProductDTO> {
 
 	private String name;
 	private Float price;

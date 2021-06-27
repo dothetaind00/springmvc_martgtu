@@ -3,7 +3,7 @@ package com.tai06dothe.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BillDTO extends BaseDTO{
+public class BillDTO extends BaseDTO<BillDTO>{
 
 	private String name;
 	private String address;

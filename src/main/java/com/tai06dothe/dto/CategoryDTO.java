@@ -3,10 +3,13 @@ package com.tai06dothe.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryDTO extends BaseDTO {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+public class CategoryDTO extends BaseDTO<CategoryDTO> {
 
 	private String name;
 	private String code;
+	@JsonIgnore
 	private List<ProductDTO> products = new ArrayList<>();
 
 	public String getName() {

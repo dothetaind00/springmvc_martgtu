@@ -3,9 +3,12 @@ package com.tai06dothe.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SaleDTO extends BaseDTO {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+public class SaleDTO extends BaseDTO<SaleDTO> {
 
 	private Integer salePercent;
+	@JsonIgnore
 	private List<ProductDTO> products = new ArrayList<>();
 
 	public Integer getSalePercent() {

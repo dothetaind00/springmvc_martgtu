@@ -1,8 +1,11 @@
 package com.tai06dothe.dto;
 
-public class ItemDTO extends BaseDTO {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+public class ItemDTO extends BaseDTO<ItemDTO> {
 
 	private BillDTO bill;
+	@JsonIgnore
 	private ProductDTO product;
 	private Float price;
 	private Integer quantity;
