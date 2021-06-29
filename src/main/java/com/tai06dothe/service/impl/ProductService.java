@@ -170,14 +170,6 @@ public class ProductService implements IProductService{
 		productEntity.setPrice(productDTO.getPrice());
 		productEntity.setQuantity(productDTO.getQuantity());
 		productEntity.setStatus(productDTO.getStatus());
-//		List<DetailProductEntity> details = productDTO.getDetails().stream()
-//																	.map(dto -> {
-//																		DetailProductEntity entity = new DetailProductEntity();
-//																		entity = modelMapper.map(dto, DetailProductEntity.class);
-//																		entity.setImage("upload/thumbnail/"+dto.getImage());
-//																		return entity;
-//																	}).collect(Collectors.toList());
-//		productEntity.setDetails(details);
 		return productEntity;
 	}
 

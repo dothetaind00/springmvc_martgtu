@@ -59,6 +59,16 @@
 								  	</form:select>
 								</div>
 							</div>
+							
+							<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="name"> Ảnh sản phẩm </label>
+								<div id="show_img" class="col-sm-9">
+									
+									<c:forEach var="detail" items="${product.details}">
+										<img src="${pageContext.request.contextPath}/${detail.image}" id="loadImage" style="width:175px;">
+							  		</c:forEach>
+								</div>
+							</div>
 						
 							<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right" for="name"> Tên sản phẩm </label>
@@ -119,7 +129,6 @@
 							
 							<form:hidden path="id" id="productId"/>
 							
-							
 							<div class="clearfix form-actions">
 								<div class="col-md-offset-3 col-md-9">
 								
@@ -160,6 +169,12 @@
 		    if (files != undefined) {
 	            var reader = new FileReader();
 	            reader.onload = function(e) {
+	            	var image = document.getElementById('loadImage');
+                    image.width = "400";
+                    image.src = reader.result;
+                    var showPicture = document.getElementById("show_img");
+                    showPicture.append(image);
+                    
 	                dataArray["base64"] = e.target.result;
 	                dataArray["image"] = files.name;
 	            };
@@ -236,6 +251,7 @@
 	            data: JSON.stringify(data),
 	            dataType: 'json',
 	            success: function (result) {
+	            	alert("Cập nhật sản phẩm thành công");
 	            	window.location.href = "${editProduct}";
 	            },
 	            error: function (error) {
