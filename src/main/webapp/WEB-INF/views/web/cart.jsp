@@ -41,7 +41,7 @@
 		                                    <div class="main_cart-img">
 		                                        <a href="#">
 		                                        	<c:forEach var="detail" items="${item.value.product.details}">
-		                                        		<img src="<c:url value='/template/static/image/${detail.image}'/>" alt="sanpham">
+		                                        		<img src="<c:url value='/${detail.image}'/>" alt="sanpham">
 		                                        	</c:forEach>
 		                                        </a>
 		                                    </div>
