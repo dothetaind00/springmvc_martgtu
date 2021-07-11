@@ -4,24 +4,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
+import com.tai06dothe.jwt.JwtAuthenticationEntryPoint;
+import com.tai06dothe.jwt.JwtRequestFilter;
 import com.tai06dothe.security.CustomAccessDeniedHandler;
 import com.tai06dothe.security.CustomAuthSuccessHandler;
 import com.tai06dothe.security.CustomLogoutSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
@@ -51,6 +59,23 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 		return new CustomAccessDeniedHandler();
 	}
 	
+	//JWT
+	@Bean
+	public JwtRequestFilter jwtRequestFilter() {
+		return new JwtRequestFilter();
+	}
+	
+	@Bean
+	public JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint() {
+		return new JwtAuthenticationEntryPoint();
+	}
+	
+	@Bean
+	@Override
+	protected AuthenticationManager authenticationManager() throws Exception {
+		return super.authenticationManager();
+	}
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(customUserDetailService).passwordEncoder(passwordEncoder);
@@ -59,10 +84,16 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
+			.csrf().disable()
+			//sẽ không tạo đc phiên của đối tượng nên sẽ không xác thực đc
+			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+			.and()
 			.authorizeRequests()
-				.antMatchers("/trang-chu","/account/**").permitAll()
-				.antMatchers("/admin","/thanh-toan").authenticated()
-				.antMatchers("/admin").hasAuthority("ADMIN")
+				//cấu hình : 1 là có đủ httpmetho trong các antMatchers, 2 là không dùng httpmethod
+				.antMatchers(HttpMethod.GET,"/trang-chu","/account/**").permitAll()
+				.antMatchers(HttpMethod.GET,"/admin","/thanh-toan").authenticated()
+				.antMatchers(HttpMethod.GET, "/api/test").authenticated()
+				.antMatchers(HttpMethod.GET,"/admin").hasAuthority("ADMIN") // = hasRole("ADMIN") cũng đúng nếu dùng thêm HttpMethod.Name_Status
 			.and()
 			.formLogin()
 				.loginPage("/account/login")
@@ -77,14 +108,16 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 				.deleteCookies("JSESSIONID")
 				.logoutSuccessHandler(logoutSuccessHandler())
 			.and()
-				.csrf().disable()
 				.exceptionHandling()
-				.accessDeniedHandler(accessDeniedHandler());
+				.accessDeniedHandler(accessDeniedHandler())
+				.authenticationEntryPoint(jwtAuthenticationEntryPoint());
+		
+		http.addFilterBefore(jwtRequestFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/template/**");
+		web.ignoring().antMatchers(HttpMethod.GET,"/thanh-toan-vidu/**"); // không cần xác thực
 	}
 	
 }

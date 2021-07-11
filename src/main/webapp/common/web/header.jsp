@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp" %>
-<!-- heaser -->
+<!-- header -->
 <header class="header">
     <div class="header_top">
         <div class="container">
@@ -30,7 +30,7 @@
                             </a>
 						</li>
 					</security:authorize>
-						
+					
 					<security:authorize access = "isAuthenticated()">
 						<li>
 							<a href="<c:url value='/perform_logout'/>" class="d-flex align-center"> 

@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>AccessDenied</title>
+<title>Unauthority</title>
 </head>
 <body>
-	<h1>Error 403 ! Access Denied (Không có quyền truy cập)</h1>
+	<h1>Error 401 ! Unauthority (Chưa xác thực tài khoản)</h1>
 </body>
 </html>
