@@ -25,7 +25,6 @@ public class JwtUtil {
 	private final String secret = "martgtu";
 	
 	public String generateJwtToken(UserDetails userDetails) {
-//		SecurityUtil.getPrincipal().getUsername()
 		JwtBuilder jwtBuilder = Jwts.builder()
 									.setSubject(userDetails.getUsername())
 									.setIssuedAt(new Date(System.currentTimeMillis()))
