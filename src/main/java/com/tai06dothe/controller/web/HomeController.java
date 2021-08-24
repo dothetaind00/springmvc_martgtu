@@ -31,4 +31,9 @@ public class HomeController {
 		return new ModelAndView("error/403");
 	}
 	
+	@RequestMapping(value = "/401", method = RequestMethod.GET)
+	public ModelAndView error401() {
+		return new ModelAndView("error/401");
+	}
+	
 }
